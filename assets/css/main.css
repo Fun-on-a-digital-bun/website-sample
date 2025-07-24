@@ -1478,11 +1478,21 @@ section,
   }
 }
 
+@media (max-width: 768px) {
+  .hero-video-container video {
+    /* Shift video to show faucet on mobile/tablet */
+    object-position: 65% center;
+  }
+}
+
 @media (max-width: 480px) {
   .hero-video-container video {
     /* Ensure video is properly sized on small screens */
-    width: 100%;
+    width: 120%;
     height: 100%;
+    /* Shift video to focus on right side where faucet is */
+    object-position: 75% center;
+    transform: translateX(-15%);
   }
 }
 
