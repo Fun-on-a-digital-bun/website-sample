@@ -1479,9 +1479,10 @@ section,
 }
 
 @media (max-width: 480px) {
-  .hero-video-container {
-    /* Hide video on very small screens, show static image instead */
-    display: none;
+  .hero-video-container video {
+    /* Ensure video is properly sized on small screens */
+    width: 100%;
+    height: 100%;
   }
 }
 

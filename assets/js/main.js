@@ -238,8 +238,11 @@
       video1.load();
       video2.load();
       
-      // Start playing the first video
-      video1.play();
+      // Start playing the first video with fallback
+      video1.play().catch(() => {
+        // If video fails to play, ensure poster is visible
+        video1.load();
+      });
       
       function switchVideos() {
         // Swap current and next video references
