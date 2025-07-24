@@ -214,26 +214,6 @@
     const videoContainer = document.querySelector('.hero-video-container');
     
     if (video1 && video2 && fallbackImg) {
-      // Check if device is mobile or has slow connection
-      const isMobile = window.innerWidth <= 768;
-      const isSlowConnection = navigator.connection && navigator.connection.effectiveType && 
-                              (navigator.connection.effectiveType === 'slow-2g' || 
-                               navigator.connection.effectiveType === '2g');
-      
-      // Show fallback image on very small screens
-      if (window.innerWidth <= 480) {
-        videoContainer.style.display = 'none';
-        fallbackImg.style.display = 'block';
-        return;
-      }
-      
-      // Reduce video quality on mobile or slow connections
-      if (isMobile || isSlowConnection) {
-        video1.style.transform = 'scale(1.1)';
-        video1.style.filter = 'blur(1px)';
-        video2.style.transform = 'scale(1.1)';
-        video2.style.filter = 'blur(1px)';
-      }
       
       // Handle video load errors
       video1.addEventListener('error', showFallback);
@@ -259,7 +239,7 @@
       video2.load();
       
       // Start playing the first video
-      video1.play().catch(console.error);
+      video1.play();
       
       function switchVideos() {
         // Swap current and next video references
